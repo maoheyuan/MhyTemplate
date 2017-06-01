@@ -1,0 +1,723 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<title>Hello MUI</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1, user-scalable=no">
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black">
+		<link rel="stylesheet" href="./css/bootstrap.min.css">
+        <link rel="stylesheet" href="./css/font-awesome.min.css">
+        <link rel="stylesheet" href="./css/baseTest.css">
+        <script src="./js/jquery.min.js"></script>
+        <script src="./module/laydate/laydate.js"></script>
+        <script src="./module/layer/layer.js"></script>
+
+        <script src="./js/base.js"></script>
+        <style type="text/css">
+            .laydate_box, .laydate_box * {
+                box-sizing:content-box;
+            }
+
+            .laydate-icon{
+                height: 34px;
+                line-height: 34px;
+            }
+        </style>
+	</head>
+
+	<body>
+
+
+    <div  class="navLeftBar">
+
+        <div  class="list-group">
+            <a class="list-group-item "><img src="./image/logo-web.svg"></a>
+        </div>
+        <div  class="list-group">
+            <a class="list-group-item part-line " href="index.html">
+                <i class="fa fa-reorder pd5" aria-hidden="true"></i> 仪表盘
+            </a>
+            <a class="list-group-item" href="order-index.html">
+                <i class="fa fa-reorder pd5" aria-hidden="true"></i>订单管理
+            </a>
+            <a class="list-group-item" href="goods-index.html">
+                <i class="fa fa-tasks pd5" aria-hidden="true"></i>商品分类
+            </a>
+            <a class="list-group-item" href="category-index.html">
+                <i class="fa fa-tasks pd5" aria-hidden="true"></i>商品管理
+            </a>
+            <a class="list-group-item" href="member-index.html">
+                <i class="fa fa-user pd5" aria-hidden="true"></i>会员管理
+            </a>
+            <a class="list-group-item" href="member-index.html">
+                <i class="fa fa-user pd5" aria-hidden="true"></i>统计管理
+            </a>
+            <a class="list-group-item" href="address-index.html">
+                <i class="fa fa-user pd5" aria-hidden="true"></i>地址管理
+            </a>
+        </div >
+        <ul class="list-group">
+            <li class="list-group-item part-line">
+                <i class="fa fa-user" aria-hidden="true"></i> 会员中心
+            </li>
+        </ul>
+
+
+    </div>
+
+    <ol class="breadcrumb">
+        <li>主页</li>
+        <li>会员管理</li>
+        <li class="active">会员列表</li>
+        <div class="quit">
+            <span type="button" >管理员:毛何远</span>
+            <a href="#">[退出]</a>
+        </div>
+    </ol>
+
+
+    <nav class="navbar navbar-default">
+        <div class="container-fluid pdl0">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse pdl0" id="bs-example-navbar-collapse-1">
+                <form class="navbar-form navbar-left pdl2">
+
+                    <div class="btn-group form-group" >
+
+                       <button type="button" class="btn btn-primary create" title="商品新增" data-url="./goods-add.html"><i class="fa fa-plus" aria-hidden="true"></i></button>
+                        <!-- Provides extra visual weight and identifies the primary action in a set of buttons -->
+                       <!-- <button type="button" class="btn btn-warning edit"><i class="fa fa-edit" aria-hidden="true"></i></button>
+                        &lt;!&ndash; Indicates a successful or positive action &ndash;&gt;
+                        <button type="button" class="btn btn-danger"> <i class="fa fa-trash-o fa-lg"></i></button>-->
+
+                    </div>
+                    <div class="form-group">
+                        <input type="text" class="form-control laydate-icon" placeholder="开始时间" onclick="laydate({istime: true, format: 'YYYY-MM-DD hh:mm:ss'})">
+                    </div>
+                    <div class="form-group">
+
+                        <input type="text" class="form-control laydate-icon" placeholder="结束时间" onclick="laydate({istime: true, format: 'YYYY-MM-DD hh:mm:ss'})">
+                    </div>
+                    <div class="form-group">
+                        <select name="key" class="form-control">
+                            <option value="orderSn">订单编号</option>
+                            <option value="memberId">会员编号</option>
+                            <option value="name">收货人名称</option>
+                            <option value="mobile">收货人手机号</option>
+                        </select>
+
+                    </div>
+                    <div class="form-group">
+                        <input type="text" class="form-control" placeholder="内容">
+                    </div>
+                    <button type="submit" class="btn btn-primary">查找</button>
+                    <button type="submit" class="btn btn-default">导出</button>
+                </form>
+
+
+            </div><!-- /.navbar-collapse -->
+        </div><!-- /.container-fluid -->
+    </nav>
+
+
+    <div class="ml5">
+        <table class="table table-bordered table-hover">
+            <thead>
+            <tr class="text-c">
+                <th>ID</th>
+                <th>用户等级</th>
+                <th>真实姓名</th>
+
+                <th>性别</th>
+                <th>手机号</th>
+
+                <th>生日</th>
+                <th>地区</th>
+
+                <th>用户余额</th>
+                <th>等级积分</th>
+                <th>累计等级积分</th>
+                <th>消费积分</th>
+                <th>累计消费积分</th>
+
+                <th>卡状态</th>
+                <th>会员状态</th>
+                <th>用户类型</th>
+                <th>新增时间</th>
+                <th>修改时间</th>
+                <th>操作</th>
+            </tr>
+            </thead>
+            <tbody>
+
+            <tr class="text-c" id="my68453">
+                <td>68453</td>
+                <td>普通会员</td>
+                <td>4b740e81</td>
+
+                <td>保密</td>
+                <td></td>
+
+                <td>1970-01-01 08:00:00</td>
+                <td>未知-未知-未知-</td>
+
+                <td>0.00</td>
+                <td>0</td>
+                <td>0</td>
+                <td>0</td>
+                <td>0</td>
+                <td>使用中</td>
+                <td>正常</td>
+                <td>商城</td>
+                <td>2017-05-01 22:50:22</td>
+                <td>1970-01-01 08:00:00</td>
+
+                <td>
+                    <a  class="btn btn-warning  btn-sm update" title="分类修改" data-url="./member-update.html?id="><i class="fa fa-edit" aria-hidden="true"></i> </a>
+                    <a  class="btn btn-danger   btn-sm delete"  title="分类删除"  data-url="./member-delete.html?id="> <i class="fa fa-trash-o fa-lg"></i></a>
+
+                </td>
+            </tr><tr class="text-c" id="my68452">
+                <td>68452</td>
+                <td>普通会员</td>
+                <td>cb9a9ef</td>
+
+                <td>保密</td>
+
+
+                <td>1970-01-01 08:00:00</td>
+                <td>未知-未知-未知-</td>
+                <td></td>
+                <td>0.00</td>
+                <td>0</td>
+                <td>0</td>
+                <td>0</td>
+                <td>0</td>
+                <td>使用中</td>
+                <td>正常</td>
+                <td>商城</td>
+                <td>2017-05-01 21:11:18</td>
+                <td>1970-01-01 08:00:00</td>
+
+                <td>
+                    <a  class="btn btn-warning  btn-sm update" title="分类修改" data-url="./member-update.html?id="><i class="fa fa-edit" aria-hidden="true"></i> </a>
+                    <a  class="btn btn-danger   btn-sm delete"  title="分类删除"  data-url="./member-delete.html?id="> <i class="fa fa-trash-o fa-lg"></i></a>
+
+                </td>
+            </tr><tr class="text-c" id="my68451">
+                <td>68451</td>
+                <td>普通会员</td>
+                <td>e9ecd173</td>
+
+                <td>保密</td>
+
+
+                <td>1970-01-01 08:00:00</td>
+                <td>未知-未知-未知-</td>
+                <td></td>
+                <td>0.00</td>
+                <td>0</td>
+                <td>0</td>
+                <td>0</td>
+                <td>0</td>
+                <td>使用中</td>
+                <td>正常</td>
+                <td>商城</td>
+                <td>2017-05-01 21:08:51</td>
+                <td>1970-01-01 08:00:00</td>
+
+                <td>
+                    <a  class="btn btn-warning  btn-sm update" title="分类修改" data-url="./member-update.html?id="><i class="fa fa-edit" aria-hidden="true"></i> </a>
+                    <a  class="btn btn-danger   btn-sm delete"  title="分类删除"  data-url="./member-delete.html?id="> <i class="fa fa-trash-o fa-lg"></i></a>
+
+                </td>
+            </tr><tr class="text-c" id="my68450">
+                <td>68450</td>
+                <td>普通会员</td>
+                <td>2bf11a314</td>
+
+                <td>保密</td>
+
+
+                <td>1970-01-01 08:00:00</td>
+                <td>未知-未知-未知-</td>
+                <td></td>
+                <td>0.00</td>
+                <td>0</td>
+                <td>0</td>
+                <td>0</td>
+                <td>0</td>
+                <td>使用中</td>
+                <td>正常</td>
+                <td>商城</td>
+                <td>2017-05-01 19:46:20</td>
+                <td>1970-01-01 08:00:00</td>
+
+                <td>
+                    <a  class="btn btn-warning  btn-sm update" title="分类修改" data-url="./member-update.html?id="><i class="fa fa-edit" aria-hidden="true"></i> </a>
+                    <a  class="btn btn-danger   btn-sm delete"  title="分类删除"  data-url="./member-delete.html?id="> <i class="fa fa-trash-o fa-lg"></i></a>
+
+                </td>
+            </tr><tr class="text-c" id="my68449">
+                <td>68449</td>
+                <td>普通会员</td>
+                <td>Zxy</td>
+
+                <td>女</td>
+
+
+                <td>1970-01-01 08:00:00</td>
+                <td>未知-未知-未知-</td>
+                <td></td>
+                <td>0.00</td>
+                <td>0</td>
+                <td>0</td>
+                <td>0</td>
+                <td>0</td>
+                <td>使用中</td>
+                <td>正常</td>
+                <td>商城</td>
+                <td>2017-05-01 19:42:37</td>
+                <td>1970-01-01 08:00:00</td>
+
+                <td>
+                    <a  class="btn btn-warning  btn-sm update" title="分类修改" data-url="./member-update.html?id="><i class="fa fa-edit" aria-hidden="true"></i> </a>
+                    <a  class="btn btn-danger   btn-sm delete"  title="分类删除"  data-url="./member-delete.html?id="> <i class="fa fa-trash-o fa-lg"></i></a>
+
+                </td>
+            </tr><tr class="text-c" id="my68448">
+                <td>68448</td>
+                <td>普通会员</td>
+                <td>马小姐</td>
+
+                <td>保密</td>
+                <td>13824315347</td>
+
+                <td>1970-01-01 08:00:00</td>
+                <td>广东-深圳-福田-福莲花园12栋401</td>
+
+                <td>0.00</td>
+                <td>0</td>
+                <td>0</td>
+                <td>0</td>
+                <td>0</td>
+                <td>使用中</td>
+                <td>正常</td>
+                <td>商城</td>
+                <td>2017-05-01 19:24:31</td>
+                <td>1970-01-01 08:00:00</td>
+
+                <td>
+                    <a  class="btn btn-warning  btn-sm update" title="分类修改" data-url="./member-update.html?id="><i class="fa fa-edit" aria-hidden="true"></i> </a>
+                    <a  class="btn btn-danger   btn-sm delete"  title="分类删除"  data-url="./member-delete.html?id="> <i class="fa fa-trash-o fa-lg"></i></a>
+
+                </td>
+            </tr><tr class="text-c" id="my68447">
+                <td>68447</td>
+                <td>普通会员</td>
+
+                <td>oR5FDwsDSL</td>
+                <td>保密</td>
+
+
+                <td>1970-01-01 08:00:00</td>
+                <td>未知-未知-未知-</td>
+                <td></td>
+                <td>0.00</td>
+                <td>0</td>
+                <td>0</td>
+                <td>0</td>
+                <td>0</td>
+                <td>使用中</td>
+                <td>正常</td>
+                <td>商城</td>
+                <td>2017-05-01 18:22:59</td>
+                <td>1970-01-01 08:00:00</td>
+
+                <td>
+                    <a  class="btn btn-warning  btn-sm update" title="分类修改" data-url="./member-update.html?id="><i class="fa fa-edit" aria-hidden="true"></i> </a>
+                    <a  class="btn btn-danger   btn-sm delete"  title="分类删除"  data-url="./member-delete.html?id="> <i class="fa fa-trash-o fa-lg"></i></a>
+
+                </td>
+            </tr><tr class="text-c" id="my68446">
+                <td>68446</td>
+                <td>普通会员</td>
+
+                <td>oR5FDwordsB</td>
+                <td>保密</td>
+
+
+                <td>1970-01-01 08:00:00</td>
+                <td>未知-未知-未知-</td>
+                <td></td>
+                <td>0.00</td>
+                <td>0</td>
+                <td>0</td>
+                <td>0</td>
+                <td>0</td>
+                <td>使用中</td>
+                <td>正常</td>
+                <td>商城</td>
+                <td>2017-05-01 18:12:07</td>
+                <td>1970-01-01 08:00:00</td>
+
+                <td>
+                    <a  class="btn btn-warning  btn-sm update" title="分类修改" data-url="./member-update.html?id="><i class="fa fa-edit" aria-hidden="true"></i> </a>
+                    <a  class="btn btn-danger   btn-sm delete"  title="分类删除"  data-url="./member-delete.html?id="> <i class="fa fa-trash-o fa-lg"></i></a>
+
+                </td>
+            </tr><tr class="text-c" id="my68445">
+                <td>68445</td>
+                <td>普通会员</td>
+                <td>黄子芹</td>
+
+                <td>女</td>
+
+
+                <td>1970-01-01 08:00:00</td>
+                <td>未知-未知-未知-</td>
+                <td></td>
+                <td>0.00</td>
+                <td>0</td>
+                <td>0</td>
+                <td>0</td>
+                <td>0</td>
+                <td>使用中</td>
+                <td>正常</td>
+                <td>商城</td>
+                <td>2017-05-01 17:04:21</td>
+                <td>1970-01-01 08:00:00</td>
+
+                <td>
+                    <a  class="btn btn-warning  btn-sm update" title="分类修改" data-url="./member-update.html?id="><i class="fa fa-edit" aria-hidden="true"></i> </a>
+                    <a  class="btn btn-danger   btn-sm delete"  title="分类删除"  data-url="./member-delete.html?id="> <i class="fa fa-trash-o fa-lg"></i></a>
+
+                </td>
+            </tr><tr class="text-c" id="my68444">
+                <td>68444</td>
+                <td>普通会员</td>
+
+                <td>oR5FDwmq</td>
+                <td>保密</td>
+
+
+                <td>1970-01-01 08:00:00</td>
+                <td>未知-未知-未知-</td>
+                <td></td>
+                <td>0.00</td>
+                <td>0</td>
+                <td>0</td>
+                <td>0</td>
+                <td>0</td>
+                <td>使用中</td>
+                <td>正常</td>
+                <td>商城</td>
+                <td>2017-05-01 16:24:02</td>
+                <td>1970-01-01 08:00:00</td>
+
+                <td>
+                    <a  class="btn btn-warning  btn-sm update" title="分类修改" data-url="./member-update.html?id="><i class="fa fa-edit" aria-hidden="true"></i> </a>
+                    <a  class="btn btn-danger   btn-sm delete"  title="分类删除"  data-url="./member-delete.html?id="> <i class="fa fa-trash-o fa-lg"></i></a>
+
+                </td>
+            </tr><tr class="text-c" id="my68443">
+                <td>68443</td>
+                <td>普通会员</td>
+                <td>應俊</td>
+
+                <td>男</td>
+
+
+                <td>1970-01-01 08:00:00</td>
+                <td>未知-未知-未知-</td>
+                <td></td>
+                <td>0.00</td>
+                <td>0</td>
+                <td>0</td>
+                <td>0</td>
+                <td>0</td>
+                <td>使用中</td>
+                <td>正常</td>
+                <td>商城</td>
+                <td>2017-05-01 16:16:47</td>
+                <td>1970-01-01 08:00:00</td>
+
+                <td>
+                    <a  class="btn btn-warning  btn-sm update" title="分类修改" data-url="./member-update.html?id="><i class="fa fa-edit" aria-hidden="true"></i> </a>
+                    <a  class="btn btn-danger   btn-sm delete"  title="分类删除"  data-url="./member-delete.html?id="> <i class="fa fa-trash-o fa-lg"></i></a>
+
+                </td>
+            </tr><tr class="text-c" id="my68442">
+                <td>68442</td>
+                <td>普通会员</td>
+                <td>小米粒</td>
+
+                <td>女</td>
+
+
+                <td>1970-01-01 08:00:00</td>
+                <td>未知-未知-未知-</td>
+                <td></td>
+                <td>0.00</td>
+                <td>0</td>
+                <td>0</td>
+                <td>0</td>
+                <td>0</td>
+                <td>使用中</td>
+                <td>正常</td>
+                <td>商城</td>
+                <td>2017-05-01 15:21:07</td>
+                <td>1970-01-01 08:00:00</td>
+
+                <td>
+                    <a  class="btn btn-warning  btn-sm update" title="分类修改" data-url="./member-update.html?id="><i class="fa fa-edit" aria-hidden="true"></i> </a>
+                    <a  class="btn btn-danger   btn-sm delete"  title="分类删除"  data-url="./member-delete.html?id="> <i class="fa fa-trash-o fa-lg"></i></a>
+
+                </td>
+            </tr><tr class="text-c" id="my68441">
+                <td>68441</td>
+                <td>普通会员</td>
+                <td>晨霏妈</td>
+
+                <td>女</td>
+
+                <td>1970-01-01 08:00:00</td>
+                <td>未知-未知-未知-</td>
+                <td></td>
+                <td>0.00</td>
+                <td>0</td>
+                <td>0</td>
+                <td>0</td>
+                <td>0</td>
+                <td>使用中</td>
+                <td>正常</td>
+                <td>商城</td>
+                <td>2017-05-01 15:00:59</td>
+                <td>1970-01-01 08:00:00</td>
+
+                <td>
+                    <a  class="btn btn-warning  btn-sm update" title="分类修改" data-url="./member-update.html?id="><i class="fa fa-edit" aria-hidden="true"></i> </a>
+                    <a  class="btn btn-danger   btn-sm delete"  title="分类删除"  data-url="./member-delete.html?id="> <i class="fa fa-trash-o fa-lg"></i></a>
+
+                </td>
+            </tr><tr class="text-c" id="my68440">
+                <td>68440</td>
+                <td>普通会员</td>
+                <td>bdd2dffe8f2</td>
+
+                <td>保密</td>
+
+
+                <td>1970-01-01 08:00:00</td>
+                <td>未知-未知-未知-</td>
+                <td></td>
+                <td>0.00</td>
+                <td>0</td>
+                <td>0</td>
+                <td>0</td>
+                <td>0</td>
+                <td>使用中</td>
+                <td>正常</td>
+                <td>商城</td>
+                <td>2017-05-01 14:59:36</td>
+                <td>1970-01-01 08:00:00</td>
+
+                <td>
+                    <a  class="btn btn-warning  btn-sm update" title="分类修改" data-url="./member-update.html?id="><i class="fa fa-edit" aria-hidden="true"></i> </a>
+                    <a  class="btn btn-danger   btn-sm delete"  title="分类删除"  data-url="./member-delete.html?id="> <i class="fa fa-trash-o fa-lg"></i></a>
+
+                </td>
+            </tr><tr class="text-c" id="my68439">
+                <td>68439</td>
+                <td>普通会员</td>
+                <td>空</td>
+
+                <td>男</td>
+
+
+                <td>1970-01-01 08:00:00</td>
+                <td>未知-未知-未知-</td>
+                <td></td>
+                <td>0.00</td>
+                <td>0</td>
+                <td>0</td>
+                <td>0</td>
+                <td>0</td>
+                <td>使用中</td>
+                <td>正常</td>
+                <td>商城</td>
+                <td>2017-05-01 12:28:35</td>
+                <td>1970-01-01 08:00:00</td>
+
+                <td>
+                    <a  class="btn btn-warning  btn-sm update" title="分类修改" data-url="./member-update.html?id="><i class="fa fa-edit" aria-hidden="true"></i> </a>
+                    <a  class="btn btn-danger   btn-sm delete"  title="分类删除"  data-url="./member-delete.html?id="> <i class="fa fa-trash-o fa-lg"></i></a>
+
+                </td>
+            </tr><tr class="text-c" id="my68438">
+                <td>68438</td>
+                <td>普通会员</td>
+                <td>fe51c28bb6c</td>
+
+                <td>保密</td>
+
+
+                <td>1970-01-01 08:00:00</td>
+                <td>未知-未知-未知-</td>
+                <td></td>
+                <td>0.00</td>
+                <td>0</td>
+                <td>0</td>
+                <td>0</td>
+                <td>0</td>
+                <td>使用中</td>
+                <td>正常</td>
+                <td>商城</td>
+                <td>2017-05-01 12:14:27</td>
+                <td>1970-01-01 08:00:00</td>
+
+                <td>
+                    <a  class="btn btn-warning  btn-sm update" title="分类修改" data-url="./member-update.html?id="><i class="fa fa-edit" aria-hidden="true"></i> </a>
+                    <a  class="btn btn-danger   btn-sm delete"  title="分类删除"  data-url="./member-delete.html?id="> <i class="fa fa-trash-o fa-lg"></i></a>
+
+                </td>
+            </tr><tr class="text-c" id="my68437">
+                <td>68437</td>
+                <td>普通会员</td>
+                <td>41e53</td>
+
+                <td>保密</td>
+
+                <td></td>
+                <td>1970-01-01 08:00:00</td>
+                <td>未知-未知-未知-</td>
+
+                <td>0.00</td>
+                <td>0</td>
+                <td>0</td>
+                <td>0</td>
+                <td>0</td>
+                <td>使用中</td>
+                <td>正常</td>
+                <td>商城</td>
+                <td>2017-05-01 09:49:31</td>
+                <td>1970-01-01 08:00:00</td>
+
+                <td>
+                    <a  class="btn btn-warning  btn-sm update" title="分类修改" data-url="./member-update.html?id="><i class="fa fa-edit" aria-hidden="true"></i> </a>
+                    <a  class="btn btn-danger   btn-sm delete"  title="分类删除"  data-url="./member-delete.html?id="> <i class="fa fa-trash-o fa-lg"></i></a>
+
+                </td>
+            </tr><tr class="text-c" id="my68436">
+                <td>68436</td>
+                <td>普通会员</td>
+
+                <td>oR5FDwina_</td>
+                <td>保密</td>
+                <td></td>
+                <td>1970-01-01 08:00:00</td>
+                <td>未知-未知-未知-</td>
+
+                <td>0.00</td>
+                <td>0</td>
+                <td>0</td>
+                <td>0</td>
+                <td>0</td>
+                <td>使用中</td>
+                <td>正常</td>
+                <td>商城</td>
+                <td>2017-05-01 09:21:21</td>
+                <td>1970-01-01 08:00:00</td>
+
+                <td>
+                    <a  class="btn btn-warning  btn-sm update" title="分类修改" data-url="./member-update.html?id="><i class="fa fa-edit" aria-hidden="true"></i> </a>
+                    <a  class="btn btn-danger   btn-sm delete"  title="分类删除"  data-url="./member-delete.html?id="> <i class="fa fa-trash-o fa-lg"></i></a>
+
+                </td>
+            </tr><tr class="text-c" id="my68435">
+                <td>68435</td>
+                <td>普通会员</td>
+
+                <td>oR5FDwhfB</td>
+                <td>保密</td>
+
+
+                <td>1970-01-01 08:00:00</td>
+                <td>未知-未知-未知-</td>
+                <td></td>
+                <td>0.00</td>
+                <td>0</td>
+                <td>0</td>
+                <td>0</td>
+                <td>0</td>
+                <td>使用中</td>
+                <td>正常</td>
+                <td>商城</td>
+                <td>2017-05-01 09:20:25</td>
+                <td>1970-01-01 08:00:00</td>
+
+                <td>
+                    <a  class="btn btn-warning  btn-sm update" title="分类修改" data-url="./member-update.html?id="><i class="fa fa-edit" aria-hidden="true"></i> </a>
+                    <a  class="btn btn-danger   btn-sm delete"  title="分类删除"  data-url="./member-delete.html?id="> <i class="fa fa-trash-o fa-lg"></i></a>
+
+                </td>
+            </tr><tr class="text-c" id="my68434">
+                <td>68434</td>
+                <td>普通会员</td>
+
+                <td>oR5FDwhXjw</td>
+                <td>保密</td>
+
+                <td></td>
+                <td>1970-01-01 08:00:00</td>
+                <td>未知-未知-未知-</td>
+
+                <td>0.00</td>
+                <td>0</td>
+                <td>0</td>
+                <td>0</td>
+                <td>0</td>
+                <td>使用中</td>
+                <td>正常</td>
+                <td>商城</td>
+                <td>2017-05-01 09:11:58</td>
+                <td>1970-01-01 08:00:00</td>
+
+                <td>
+                    <a  class="btn btn-warning  btn-sm update" title="分类修改" data-url="./member-update.html?id="><i class="fa fa-edit" aria-hidden="true"></i> </a>
+                    <a  class="btn btn-danger   btn-sm delete"  title="分类删除"  data-url="./member-delete.html?id="> <i class="fa fa-trash-o fa-lg"></i></a>
+
+                </td>
+            </tr>                </tbody>
+        </table>
+    <nav class="Page" aria-label="Page navigation ">
+        <ul class="pagination pull-right">
+            <li>
+                <a href="#" aria-label="Previous">
+                    <span aria-hidden="true">上页</span>
+                </a>
+            </li>
+            <li><a href="#">1</a></li>
+            <li><a href="#">2</a></li>
+            <li><a href="#">3</a></li>
+            <li><a href="#">4</a></li>
+            <li><a href="#">5</a></li>
+            <li>
+                <a href="#" aria-label="Next">
+                    <span aria-hidden="true">下页</span>
+                </a>
+            </li>
+        </ul>
+        <span class="row-num">本页100条，总数500条</span>
+    </nav>
+
+
+    </div>
+
+
+	</body>
+
+</html>
